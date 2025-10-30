@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "f78bca45-34ed-40d2-8bf1-4fd1a4f9c0a7",
+		"name": "PruebasEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37276319"
+	},
+	"item": [
+		{
+			"name": "ObtenerTodosEnvios",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SubirEnvio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cliente\": \"tralalero\",\r\n  \"direccion\": \"tralala\",\r\n  \"estado\": \"Entregado\",\r\n  \"id\": \"004\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/envios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"envios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

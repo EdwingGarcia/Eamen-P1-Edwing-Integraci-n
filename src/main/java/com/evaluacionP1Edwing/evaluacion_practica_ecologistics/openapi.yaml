@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: EcoLogistics API
+  version: 1.0.0
+  description: API REST para listar y registrar envíos (prototipo para evaluación).
+servers:
+  - url: http://localhost:8080
+paths:
+  /envios:
+    get:
+      summary: Listar envíos
+      operationId: listarEnvios
+      responses:
+        '200':
+          description: Lista de envíos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Envio'
+    post:
+      summary: Crear envío
+      operationId: crearEnvio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Envio'
+      responses:
+        '201':
+          description: Envío creado
+          headers:
+            Location:
+              description: URL del recurso creado
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envio'
+  /envios/{id}:
+    get:
+      summary: Obtener envío por ID
+      operationId: obtenerEnvioPorId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Envío encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envio'
+        '404':
+          description: No encontrado
+components:
+  schemas:
+    Envio:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "001"
+        cliente:
+          type: string
+          example: "Juan Pérez"
+        direccion:
+          type: string
+          example: "Calle 12 #45"
+        estado:
+          type: string
+          example: "Entregado"
