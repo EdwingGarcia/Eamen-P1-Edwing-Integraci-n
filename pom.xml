@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.evaluacionP1Edwing</groupId>
+	<artifactId>evaluacion-practica-ecologistics</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>evaluacion-practica-ecologistics</name>
+	<description>Proyecto de integración EcoLogistics (CSV + JSON + API REST + OpenAPI)</description>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- Núcleo Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- Web: para exponer la API REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Apache Commons CSV: lectura del archivo envios.csv -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+
+		<!-- Jackson: serialización / deserialización JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<!-- OpenAPI / Swagger UI: documentación automática de la API -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<!-- Lombok (opcional, solo para simplificar getters/setters) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Testing: JUnit 5, MockMvc -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Plugin de Spring Boot para empaquetar y ejecutar -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Plugin compilador con Java 17 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+				<configuration>
+					<release>${java.version}</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
